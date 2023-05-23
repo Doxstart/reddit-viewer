@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Post } from 'src/app/model/post';
 import { RedditService } from 'src/app/services/reddit-service/reddit.service';
 
 @Component({
@@ -12,6 +13,8 @@ export class HomePageComponent {
 
   selectedArgument='all'
 
+  posts: Post[] = [];
+
   constructor(private redditService: RedditService){
     this.loadPosts()
   }
@@ -23,8 +26,8 @@ export class HomePageComponent {
 
   loadPosts(){
     this.redditService.getRedditPosts(this.selectedArgument).subscribe({
-      next:data=>console.log(data),
-      error: err=> console.log(err)
+      next: data => this.posts = data,
+      error: err => console.log(err)
     })
   }
 }

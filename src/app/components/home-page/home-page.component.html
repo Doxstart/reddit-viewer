@@ -22,3 +22,13 @@
   <mat-icon>{{isLight ? "dark_mode" : "light_mode"}}</mat-icon>
 </button>
 </mat-toolbar>
+
+<div *ngFor="let post of posts" class="post-container">
+  <span>{{post.title}}</span>
+  <span>{{post.author}}</span>
+  <span>{{post.selftext}}</span>
+  <span>{{post.score}}</span>
+  <span>{{post.url}}</span>
+  <span>{{post.permalink}}</span>
+  <span>{{post.thumbnail}}</span>
+</div>
